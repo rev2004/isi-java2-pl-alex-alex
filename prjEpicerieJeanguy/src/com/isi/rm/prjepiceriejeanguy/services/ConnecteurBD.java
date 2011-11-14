@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class ConnecteurBD {
-	//test
 	private Connection conn;
 	private String connStr;
 	public ConnecteurBD(String driver, String connStr){
