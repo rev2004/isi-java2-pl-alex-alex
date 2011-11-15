@@ -15,8 +15,7 @@ private int noCategorie;
 String descriptionCategorie;
 String image;
 
-public Categorie(ConnecteurBD cbd, int noCategorie,
-			String descriptionCategorie, String image) {
+public Categorie(int noCategorie,String descriptionCategorie, String image) {
 		super();
 		this.noCategorie = noCategorie;
 		this.descriptionCategorie = descriptionCategorie;

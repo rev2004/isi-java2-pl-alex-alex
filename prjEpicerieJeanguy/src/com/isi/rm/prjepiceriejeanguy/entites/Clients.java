@@ -26,8 +26,8 @@ String noCarteCredit;
 String telephoneClient;
 String courrielClient;
 String passwordClient;
-public Clients(int noClient, String nomClient, String prenomClient,
-		int noCiviqueClient, String rueClient, String codePostalClient,
+
+public Clients(int noClient, String nomClient, String prenomClient, int noCiviqueClient, String rueClient, String codePostalClient,
 		String villeClient, String noCarteCredit, String telephoneClient,
 		String courrielClient, String passwordClient) {
 	super();
