@@ -8,6 +8,7 @@
 String nomContext = application.getServletContextName();
 String urlControleur = application.getInitParameter("urlController");
 String paramAction = application.getInitParameter("paramAction");
+String message = (String)request.getAttribute("message");
 
 String url= "/"+nomContext+"/"+urlControleur+"?"+paramAction+"=";
 
