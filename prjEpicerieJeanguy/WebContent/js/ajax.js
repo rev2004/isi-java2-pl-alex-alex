@@ -12,15 +12,12 @@ function ajouterProspect(path){
 	else{
 		alert("ajax non supporté");
 	}
-
-	//construire la requete
-	req = path;
 	
 	//configurer l'objet xmlHttp
 	//callback
 	xmlHttp.onreadystatechange = recevoirListeFavoris;
 	//préparer la requete
-	xmlHttp.open("GET", req, true);
+	xmlHttp.open("GET", path, true);
 	//lancer la requete
 	xmlHttp.send(null);
 
