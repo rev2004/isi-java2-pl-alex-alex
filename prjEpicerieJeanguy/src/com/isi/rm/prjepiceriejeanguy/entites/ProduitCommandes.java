@@ -3,7 +3,7 @@ package com.isi.rm.prjepiceriejeanguy.entites;
 public class ProduitCommandes {
 
 	/*
-	 * noProduit           bigint(20)    (NULL)             NO      PRI     (NULL)   auto_increment  select,insert,update,references         
+noProduit           bigint(20)    (NULL)             NO      PRI     (NULL)   auto_increment  select,insert,update,references         
 descriptionProduit  varchar(100)  latin1_swedish_ci  YES             (NULL)                   select,insert,update,references         
 qteProduit          int(11)       (NULL)             YES             (NULL)                   select,insert,update,references         
 formatProduit       varchar(100)  latin1_swedish_ci  YES             (NULL)                   select,insert,update,references         
