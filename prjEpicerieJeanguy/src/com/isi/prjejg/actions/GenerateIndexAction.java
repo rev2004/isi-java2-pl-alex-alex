@@ -10,9 +10,9 @@ import com.isi.prjejg.managers.CategorieManager;
 import com.isi.prjejg.services.ConnecteurBD;
 
 
-public class ListeCategorieAction extends Action {
+public class GenerateIndexAction extends Action {
 
-	public ListeCategorieAction(ConnecteurBD cbd, String destOk,String destBad, boolean reqLogin) {
+	public GenerateIndexAction(ConnecteurBD cbd, String destOk,String destBad, boolean reqLogin) {
 		super(cbd, destOk, destBad, reqLogin);
 		// TODO Auto-generated constructor stub
 	}
