@@ -26,7 +26,7 @@ public class ListeCategorieAction extends Action {
 		CategorieManager cm = new CategorieManager(cbd);
 		ArrayList<Categorie> alC = cm.getAllCategories();
 		request.setAttribute("lstCat", alC);
-		System.out.println("GOGO");
+	
 		/*
 		//Produits
 		ProduitManager pm = new CategorieManager(cbd);
