@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+
 import com.isi.rm.prjepiceriejeanguy.entites.Clients;
 import com.isi.rm.prjepiceriejeanguy.services.ConnecteurBD;
 
@@ -61,6 +62,50 @@ String passwordClient;
 		}
 		
 	return alC;	
+	}
+	
+	public Clients getLoginMembre(String username, String password){
+		ArrayList<Clients> alMembre = getAlClientsFromQuery("select * from clients where courrielClient='"+username+"' and passwordClient='"+password+"'");
+		if(alMembre.size()>0)
+			return alMembre.get(0);
+		else
+			return null;
+	}
+	
+	private ArrayList<Clients> getAlClientsFromQuery(String req){
+		ArrayList<Clients> alM = new ArrayList<Clients>(); 
+		PreparedStatement ps=null;
+		ResultSet rs= null;
+		ps= cbd.getPreparedStatement(req);
+		
+		try {
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				Clients m = new Clients(rs.getInt("noClient"),
+						rs.getString("nomClient"),
+						rs.getString("prenomClient"),
+						rs.getInt("NoCiviqueClient"),
+						rs.getString("rueClient"),
+						rs.getString("codePostalClient"),
+						rs.getString("villeClient"),
+						rs.getString("noCarteCredit"),
+						rs.getString("telephoneClient"),
+						rs.getString("courrielClient"),
+						rs.getString("passwordClient"));
+				alM.add(m);	
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+			try {
+				rs.close();
+				ps.close();
+				cbd.fermerConnexion();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}	
+		return alM;
 	}
 
 }

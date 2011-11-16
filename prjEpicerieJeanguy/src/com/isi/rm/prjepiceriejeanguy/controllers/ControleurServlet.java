@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.isi.rm.prjepiceriejeanguy.actions.Action;
 import com.isi.rm.prjepiceriejeanguy.actions.EnumActions;
 import com.isi.rm.prjepiceriejeanguy.actions.ListeCategorieAction;
+import com.isi.rm.prjepiceriejeanguy.actions.LoginClientAction;
 import com.isi.rm.prjepiceriejeanguy.services.ConnecteurBD;
 
 /**
@@ -44,7 +45,8 @@ public class ControleurServlet extends HttpServlet {
 		hActions = new HashMap<String, Action>();
 		
 		// et ainsi de suite pour toutes les actions....
-		hActions.put(EnumActions.Index.toString(),new ListeCategorieAction(cbd, "/index.jsp", "/erreur.jsp"));
+		hActions.put(EnumActions.Index.toString(),new ListeCategorieAction(cbd, "/index.jsp", "/erreur.jsp", false));
+		hActions.put(EnumActions.Login.toString(),new LoginClientAction(cbd, "/index.jsp", "/index.jsp", false));
 		
 	}
 
@@ -64,9 +66,19 @@ public class ControleurServlet extends HttpServlet {
 			a = hActions.get(EnumActions.Index.toString());
 		else
 			a = hActions.get(job);
-
-		a.doTheJob(request, response);
-		destView = a.getDestination();
+		
+		//Vérifier si on a besoin de logger et si on est loggé
+		if(a.isReqLogin() == false || request.getSession().getAttribute("membreInfo") != null) {
+			a.doTheJob(request, response);
+			destView = a.getDestination();
+		} else {
+			a = hActions.get(EnumActions.Index.toString());
+			a.doTheJob(request, response);
+			destView = a.getDestination();
+		}
+		
+		if(destView=="index.jsp")
+			hActions.get(EnumActions.Index.toString()).doTheJob(request, response);
 
 		//forward
 		RequestDispatcher rd = this.getServletContext().getRequestDispatcher(destView);

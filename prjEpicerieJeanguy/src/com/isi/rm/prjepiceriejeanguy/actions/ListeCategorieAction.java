@@ -6,15 +6,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.isi.rm.prjepiceriejeanguy.entites.Categorie;
-import com.isi.rm.prjepiceriejeanguy.entites.Produits;
 import com.isi.rm.prjepiceriejeanguy.managers.CategorieManager;
 import com.isi.rm.prjepiceriejeanguy.services.ConnecteurBD;
 
 
 public class ListeCategorieAction extends Action {
 
-	public ListeCategorieAction(ConnecteurBD cbd, String destOk,String destBad) {
-		super(cbd, destOk, destBad);
+	public ListeCategorieAction(ConnecteurBD cbd, String destOk,String destBad, boolean reqLogin) {
+		super(cbd, destOk, destBad, reqLogin);
 		// TODO Auto-generated constructor stub
 	}
 	@Override
@@ -26,7 +25,7 @@ public class ListeCategorieAction extends Action {
 		CategorieManager cm = new CategorieManager(cbd);
 		ArrayList<Categorie> alC = cm.getAllCategories();
 		request.setAttribute("lstCat", alC);
-	
+
 		/*
 		//Produits
 		ProduitManager pm = new CategorieManager(cbd);
