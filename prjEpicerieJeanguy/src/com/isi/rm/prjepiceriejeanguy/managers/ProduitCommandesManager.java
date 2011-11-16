@@ -19,7 +19,7 @@ public class ProduitCommandesManager {
 	
 	public ArrayList<ProduitCommandes> getAllProduitCommandes(){
 		ArrayList<ProduitCommandes> alPC= new ArrayList<ProduitCommandes>();
-		String sql = "select * from ProduitCommandes";
+		String sql = "select * from produitscommandes";
 		PreparedStatement ps = null;
 		ResultSet rs= null;
 		

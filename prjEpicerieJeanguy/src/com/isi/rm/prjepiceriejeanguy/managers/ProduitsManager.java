@@ -17,7 +17,7 @@ public class ProduitsManager {
 public ArrayList<Produits> getAllProduits(){
 	
 	ArrayList<Produits> alP = new ArrayList<Produits>();
-	String sql ="select * from Produits";
+	String sql ="select * from produits";
 	PreparedStatement ps=null;
 	ResultSet rs=null;
 	ps= cbd.getPreparedStatement(sql);

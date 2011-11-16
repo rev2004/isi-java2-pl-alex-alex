@@ -13,8 +13,8 @@ public class Action {
 	protected String destination;
 	
 	
-	public Action(ConnecteurBD cbd, String destOk, String destBad,
-			String destination) {
+	
+	public Action(ConnecteurBD cbd, String destOk, String destBad) {
 		super();
 		this.cbd = cbd;
 		this.destOk = destOk;

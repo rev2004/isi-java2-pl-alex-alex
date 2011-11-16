@@ -1,7 +1,5 @@
 package com.isi.rm.prjepiceriejeanguy.entites;
 
-import com.isi.rm.prjepiceriejeanguy.services.ConnecteurBD;
-
 public class Categorie {
 
 

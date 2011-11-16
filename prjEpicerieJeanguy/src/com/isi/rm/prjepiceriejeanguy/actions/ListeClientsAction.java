@@ -12,9 +12,8 @@ import com.isi.rm.prjepiceriejeanguy.services.ConnecteurBD;
 
 public class ListeClientsAction extends Action {
 
-	public ListeClientsAction(ConnecteurBD cbd, String destOk, String destBad,
-			String destination) {
-		super(cbd, destOk, destBad, destination);
+	public ListeClientsAction(ConnecteurBD cbd, String destOk, String destBad) {
+		super(cbd, destOk, destBad);
 		// TODO Auto-generated constructor stub
 	}
 	
