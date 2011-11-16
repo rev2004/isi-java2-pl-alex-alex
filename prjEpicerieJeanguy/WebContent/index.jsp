@@ -10,6 +10,7 @@
 <!-- JAVASCRIPT -->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.js"></script>
 <script type="text/javascript" src="js/popup.js"></script>
+<script type="text/javascript" src="js/ajax.js"></script>
 
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -65,7 +66,7 @@
 				<div>
 				<h5>Choisir une catégorie d'aliment</h5>
 		<%for(Categorie c: alC){ %>
-		<a href="<%=url %><%=ListeCategorieAction.class.getName()%>&catId=<%=c.getNoCategorie() %>"><%=c.getDescriptionCategorie() %></a><br/>
+		<a href="<%=url %><%=EnumActions.Index.toString() %>&catId=<%=c.getNoCategorie() %>"><%=c.getDescriptionCategorie() %></a><br/>
 
 					<%} %>
 				</div>
@@ -90,10 +91,11 @@
 					<a href="http://www.metro.ca/recettes/47/porc.fr.html">Porc</a><br>
 					<a href="http://www.metro.ca/recettes/47/poulet.fr.html">Volaile</a><br>
 					<a href="http://www.metro.ca/recettes/4/desserts.fr.html">Dessert</a><br>
+					<span onClick="ajouterProspect('/prjP33Final/go')">AjaxTester</span>
 				</div>
 			</div>
 		</div>
-		<div class="content">
+		<div class="content" id="content">
 			<div>
 				Titre
 			</div>

@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.isi.prjejg.actions.Action;
 import com.isi.prjejg.actions.EnumActions;
-import com.isi.prjejg.actions.ListeCategorieAction;
+import com.isi.prjejg.actions.GenerateIndexAction;
 import com.isi.prjejg.actions.LoginClientAction;
 import com.isi.prjejg.services.ConnecteurBD;
 
@@ -45,7 +45,7 @@ public class ControleurServlet extends HttpServlet {
 		hActions = new HashMap<String, Action>();
 		
 		// et ainsi de suite pour toutes les actions....
-		hActions.put(EnumActions.Index.toString(),new ListeCategorieAction(cbd, "/index.jsp", "/erreur.jsp", false));
+		hActions.put(EnumActions.Index.toString(),new GenerateIndexAction(cbd, "/index.jsp", "/erreur.jsp", false));
 		hActions.put(EnumActions.Login.toString(),new LoginClientAction(cbd, "/index.jsp", "/index.jsp", false));
 		
 	}
