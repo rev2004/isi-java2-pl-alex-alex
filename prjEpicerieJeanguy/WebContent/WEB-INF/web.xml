@@ -3,13 +3,6 @@
   <display-name>prjEpicerieJeanguy</display-name>
   <welcome-file-list>
     <welcome-file>go</welcome-file>
-    <welcome-file>accueil.jsp</welcome-file>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
    <context-param>
     <param-name>driver</param-name>
