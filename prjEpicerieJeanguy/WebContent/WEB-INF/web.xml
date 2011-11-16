@@ -2,7 +2,8 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>prjEpicerieJeanguy</display-name>
   <welcome-file-list>
-   <welcome-file>accueil.jsp</welcome-file>
+    <welcome-file>go</welcome-file>
+    <welcome-file>accueil.jsp</welcome-file>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>
@@ -16,7 +17,7 @@
   </context-param>
   <context-param>
     <param-name>connStr</param-name>
-    <param-value>jdbc:mysql://localhost:3306/rencontresimple?user=userDB&amp;password=123456</param-value>
+    <param-value>jdbc:mysql://localhost:3306/bdepicerie?user=userDB&amp;password=123456</param-value>
   </context-param>
   <context-param>
     <param-name>paramAction</param-name>
@@ -30,7 +31,7 @@
     <description></description>
     <display-name>ControleurServlet</display-name>
     <servlet-name>ControleurServlet</servlet-name>
-    <servlet-class>com.isi.rm.rencontremvcsoft.controllers.ControleurServlet</servlet-class>
+    <servlet-class>com.isi.rm.prjepiceriejeanguy.controllers.ControleurServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ControleurServlet</servlet-name>
