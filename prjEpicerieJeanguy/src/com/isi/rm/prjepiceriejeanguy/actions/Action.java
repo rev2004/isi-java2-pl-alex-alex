@@ -11,15 +11,17 @@ public class Action {
 	protected String destOk;
 	protected String destBad;
 	protected String destination;
+	protected boolean reqLogin;
 	
 	
 	
-	public Action(ConnecteurBD cbd, String destOk, String destBad) {
+	public Action(ConnecteurBD cbd, String destOk, String destBad, boolean reqLogin) {
 		super();
 		this.cbd = cbd;
 		this.destOk = destOk;
 		this.destBad = destBad;
-		
+		this.destination = destBad;
+		this.reqLogin = reqLogin;
 	}
 
 
@@ -30,6 +32,9 @@ public class Action {
 	}
 	public String getDestination(){
 		return destination;
+	}
+	public boolean isReqLogin(){
+		return reqLogin;
 	}
 	
 }
