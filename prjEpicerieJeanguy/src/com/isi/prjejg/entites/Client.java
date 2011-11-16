@@ -1,6 +1,6 @@
-package com.isi.rm.prjepiceriejeanguy.entites;
+package com.isi.prjejg.entites;
 
-public class Clients {
+public class Client {
 /*
 noClient          bigint(20)    (NULL)             NO      PRI     (NULL)   auto_increment  select,insert,update,references         
 nomClient         varchar(100)  latin1_swedish_ci  YES             (NULL)                   select,insert,update,references         
@@ -27,7 +27,7 @@ String telephoneClient;
 String courrielClient;
 String passwordClient;
 
-public Clients(int noClient, String nomClient, String prenomClient, int noCiviqueClient, String rueClient, String codePostalClient,
+public Client(int noClient, String nomClient, String prenomClient, int noCiviqueClient, String rueClient, String codePostalClient,
 		String villeClient, String noCarteCredit, String telephoneClient,
 		String courrielClient, String passwordClient) {
 	super();

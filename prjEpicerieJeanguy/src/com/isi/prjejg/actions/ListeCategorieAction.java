@@ -1,13 +1,13 @@
-package com.isi.rm.prjepiceriejeanguy.actions;
+package com.isi.prjejg.actions;
 
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.isi.rm.prjepiceriejeanguy.entites.Categorie;
-import com.isi.rm.prjepiceriejeanguy.managers.CategorieManager;
-import com.isi.rm.prjepiceriejeanguy.services.ConnecteurBD;
+import com.isi.prjejg.entites.Categorie;
+import com.isi.prjejg.managers.CategorieManager;
+import com.isi.prjejg.services.ConnecteurBD;
 
 
 public class ListeCategorieAction extends Action {

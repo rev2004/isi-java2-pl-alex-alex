@@ -1,4 +1,4 @@
-package com.isi.rm.prjepiceriejeanguy.managers;
+package com.isi.prjejg.managers;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -6,8 +6,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 
-import com.isi.rm.prjepiceriejeanguy.entites.Clients;
-import com.isi.rm.prjepiceriejeanguy.services.ConnecteurBD;
+import com.isi.prjejg.entites.Client;
+import com.isi.prjejg.services.ConnecteurBD;
 
 public class ClientManager {
 	
@@ -18,8 +18,8 @@ public class ClientManager {
 		this.cbd=cbd;
 	}
 	
-	public ArrayList<Clients> getAllClients(){
-		ArrayList<Clients> alC= new ArrayList<Clients>();
+	public ArrayList<Client> getAllClients(){
+		ArrayList<Client> alC= new ArrayList<Client>();
 		String sql = "select * from Clients";
 		PreparedStatement ps=null;
 		ResultSet rs=null;
@@ -43,7 +43,7 @@ String passwordClient;
 				 * 
 				 */
 				
-				Clients c = new Clients (rs.getInt("noClient"),
+				Client c = new Client (rs.getInt("noClient"),
 										rs.getString("nomClient"),
 										rs.getString("prenomClient"),
 										rs.getInt("NoCiviqueClient"),
@@ -64,16 +64,16 @@ String passwordClient;
 	return alC;	
 	}
 	
-	public Clients getLoginMembre(String username, String password){
-		ArrayList<Clients> alMembre = getAlClientsFromQuery("select * from clients where courrielClient='"+username+"' and passwordClient='"+password+"'");
+	public Client getLoginMembre(String username, String password){
+		ArrayList<Client> alMembre = getAlClientsFromQuery("select * from clients where courrielClient='"+username+"' and passwordClient='"+password+"'");
 		if(alMembre.size()>0)
 			return alMembre.get(0);
 		else
 			return null;
 	}
 	
-	private ArrayList<Clients> getAlClientsFromQuery(String req){
-		ArrayList<Clients> alM = new ArrayList<Clients>(); 
+	private ArrayList<Client> getAlClientsFromQuery(String req){
+		ArrayList<Client> alM = new ArrayList<Client>(); 
 		PreparedStatement ps=null;
 		ResultSet rs= null;
 		ps= cbd.getPreparedStatement(req);
@@ -81,7 +81,7 @@ String passwordClient;
 		try {
 			rs = ps.executeQuery();
 			while(rs.next()) {
-				Clients m = new Clients(rs.getInt("noClient"),
+				Client m = new Client(rs.getInt("noClient"),
 						rs.getString("nomClient"),
 						rs.getString("prenomClient"),
 						rs.getInt("NoCiviqueClient"),

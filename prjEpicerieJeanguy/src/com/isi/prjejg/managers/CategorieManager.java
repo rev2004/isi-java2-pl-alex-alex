@@ -1,12 +1,12 @@
-package com.isi.rm.prjepiceriejeanguy.managers;
+package com.isi.prjejg.managers;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.isi.rm.prjepiceriejeanguy.entites.Categorie;
-import com.isi.rm.prjepiceriejeanguy.services.ConnecteurBD;
+import com.isi.prjejg.entites.Categorie;
+import com.isi.prjejg.services.ConnecteurBD;
 
 public class CategorieManager  {
 

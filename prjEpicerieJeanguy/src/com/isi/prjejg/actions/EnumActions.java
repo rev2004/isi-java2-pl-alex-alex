@@ -1,4 +1,4 @@
-package com.isi.rm.prjepiceriejeanguy.actions;
+package com.isi.prjejg.actions;
 
 public enum EnumActions {
 	Index,

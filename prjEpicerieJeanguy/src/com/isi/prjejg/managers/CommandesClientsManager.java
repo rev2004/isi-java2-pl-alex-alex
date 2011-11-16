@@ -1,4 +1,4 @@
-package com.isi.rm.prjepiceriejeanguy.managers;
+package com.isi.prjejg.managers;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -6,15 +6,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 
-import com.isi.rm.prjepiceriejeanguy.entites.CommandesClients;
-import com.isi.rm.prjepiceriejeanguy.services.ConnecteurBD;
+import com.isi.prjejg.entites.CommandeClient;
+import com.isi.prjejg.services.ConnecteurBD;
 
 public class CommandesClientsManager {
 
 	private ConnecteurBD cbd;
 	
-	public ArrayList<CommandesClients> getAllCommandesClients(){
-		ArrayList<CommandesClients> alPC= new ArrayList<CommandesClients>();
+	public ArrayList<CommandeClient> getAllCommandesClients(){
+		ArrayList<CommandeClient> alPC= new ArrayList<CommandeClient>();
 		String sql = "select * from CommandesClients";
 		PreparedStatement ps = null;
 		ResultSet rs= null;
@@ -35,7 +35,7 @@ public class CommandesClientsManager {
 
 			 */
 			
-			CommandesClients pc = new CommandesClients(rs.getInt("noCommande"),
+			CommandeClient pc = new CommandeClient(rs.getInt("noCommande"),
 							rs.getDouble("totalCommande"), 
 							rs.getInt("noClient")) ;
 			alPC.add(pc);
