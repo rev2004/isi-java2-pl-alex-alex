@@ -10,4 +10,30 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+   <context-param>
+    <param-name>driver</param-name>
+    <param-value>com.mysql.jdbc.Driver</param-value>
+  </context-param>
+  <context-param>
+    <param-name>connStr</param-name>
+    <param-value>jdbc:mysql://localhost:3306/rencontresimple?user=userDB&amp;password=123456</param-value>
+  </context-param>
+  <context-param>
+    <param-name>paramAction</param-name>
+    <param-value>jobToDo</param-value>
+  </context-param>
+  <context-param>
+    <param-name>urlController</param-name>
+    <param-value>go</param-value>
+  </context-param>
+  <servlet>
+    <description></description>
+    <display-name>ControleurServlet</display-name>
+    <servlet-name>ControleurServlet</servlet-name>
+    <servlet-class>com.isi.rm.rencontremvcsoft.controllers.ControleurServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControleurServlet</servlet-name>
+    <url-pattern>/go</url-pattern>
+  </servlet-mapping>
 </web-app>
