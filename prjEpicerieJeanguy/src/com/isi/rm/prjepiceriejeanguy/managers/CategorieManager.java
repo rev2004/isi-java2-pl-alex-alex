@@ -18,7 +18,7 @@ public class CategorieManager  {
 	}
 	public ArrayList<Categorie> getAllCategories(){ 
 	ArrayList<Categorie> alC= new ArrayList<Categorie>();
-	String sql = "select * from categorie";
+	String sql = "select * from categories";
 	PreparedStatement ps = null;
 	ResultSet rs= null;
 	

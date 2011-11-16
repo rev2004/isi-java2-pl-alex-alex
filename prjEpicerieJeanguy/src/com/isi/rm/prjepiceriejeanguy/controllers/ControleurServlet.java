@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.isi.rm.prjepiceriejeanguy.actions.Action;
+import com.isi.rm.prjepiceriejeanguy.actions.EnumActions;
+import com.isi.rm.prjepiceriejeanguy.actions.ListeCategorieAction;
 import com.isi.rm.prjepiceriejeanguy.services.ConnecteurBD;
 
 /**
@@ -42,7 +44,7 @@ public class ControleurServlet extends HttpServlet {
 		hActions = new HashMap<String, Action>();
 		
 		// et ainsi de suite pour toutes les actions....
-		
+		hActions.put(EnumActions.Index.toString(),new ListeCategorieAction(cbd, "/index.jsp", "/erreur.jsp"));
 		
 	}
 
@@ -52,31 +54,23 @@ public class ControleurServlet extends HttpServlet {
 	 */
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Action a;
+		String destView;
 		
-				
 		//récup job
 		String job = request.getParameter(nomParamJob);
-		String destView = "/intro.jsp";
-		//si pas de job
 		
-		if(job!=null){
-			//récup l'action
-			Action a = hActions.get(job);
-			//s'assurer qu'on a trouvé une action
-			if(a!=null){
-				//executer l'action
-				a.doTheJob(request, response);
-				destView = a.getDestination();
-				
-			}
-		
-		}
-		
+		if(job==null)
+			a = hActions.get(EnumActions.Index.toString());
+		else
+			a = hActions.get(job);
+
+		a.doTheJob(request, response);
+		destView = a.getDestination();
+
 		//forward
 		RequestDispatcher rd = this.getServletContext().getRequestDispatcher(destView);
 		rd.forward(request, response);
-		
-		
 	}
 	/**
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
