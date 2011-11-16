@@ -19,7 +19,7 @@
 <div class="blackout popup" id="blackout">
 </div>
 <div class="login popup" id="login">
-	<form>
+	<form action="<%=url %><%=EnumActions.Login.toString() %>" method="post">
 		<table class="login">
 			<tr>
 				<td>
@@ -94,10 +94,10 @@
 		</div>
 		<div class="content">
 			<div>
-				mid
+				Titre
 			</div>
 			<div>
-				mid
+				<%=message %>
 			</div>
 		</div>
 		<div class="rightSidebar">
