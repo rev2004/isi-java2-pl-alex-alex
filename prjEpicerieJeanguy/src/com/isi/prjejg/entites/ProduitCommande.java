@@ -1,6 +1,6 @@
-package com.isi.rm.prjepiceriejeanguy.entites;
+package com.isi.prjejg.entites;
 
-public class ProduitCommandes {
+public class ProduitCommande {
 
 	/*
 noProduit           bigint(20)    (NULL)             NO      PRI     (NULL)   auto_increment  select,insert,update,references         
@@ -21,7 +21,7 @@ noCategorie         bigint(20)    (NULL)             YES             (NULL)     
 	private int nocategorie;
 	
 	
-	public ProduitCommandes(int noProduit, String descriptionProduit,
+	public ProduitCommande(int noProduit, String descriptionProduit,
 			int qteProduit, String formatProduit, double prixCountant,
 			double prixVendu, int nocategorie) {
 		super();

@@ -1,4 +1,4 @@
-package com.isi.rm.prjepiceriejeanguy.controllers;
+package com.isi.prjejg.controllers;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -11,11 +11,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.isi.rm.prjepiceriejeanguy.actions.Action;
-import com.isi.rm.prjepiceriejeanguy.actions.EnumActions;
-import com.isi.rm.prjepiceriejeanguy.actions.ListeCategorieAction;
-import com.isi.rm.prjepiceriejeanguy.actions.LoginClientAction;
-import com.isi.rm.prjepiceriejeanguy.services.ConnecteurBD;
+import com.isi.prjejg.actions.Action;
+import com.isi.prjejg.actions.EnumActions;
+import com.isi.prjejg.actions.ListeCategorieAction;
+import com.isi.prjejg.actions.LoginClientAction;
+import com.isi.prjejg.services.ConnecteurBD;
 
 /**
  * Servlet implementation class ControleurServlet
@@ -77,7 +77,7 @@ public class ControleurServlet extends HttpServlet {
 			destView = a.getDestination();
 		}
 		
-		if(destView=="index.jsp")
+		if(destView=="/index.jsp")
 			hActions.get(EnumActions.Index.toString()).doTheJob(request, response);
 
 		//forward

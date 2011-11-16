@@ -1,9 +1,9 @@
-package com.isi.rm.prjepiceriejeanguy.actions;
+package com.isi.prjejg.actions;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.isi.rm.prjepiceriejeanguy.services.ConnecteurBD;
+import com.isi.prjejg.services.ConnecteurBD;
 
 public class Action {
 	

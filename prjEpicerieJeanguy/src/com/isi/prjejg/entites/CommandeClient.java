@@ -1,6 +1,6 @@
-package com.isi.rm.prjepiceriejeanguy.entites;
+package com.isi.prjejg.entites;
 
-public class CommandesClients {
+public class CommandeClient {
 /*
  * noCommande     bigint(20)  (NULL)     NO      PRI     (NULL)   auto_increment  select,insert,update,references         
 totalCommande  double      (NULL)     YES             (NULL)                   select,insert,update,references         
@@ -11,7 +11,7 @@ noClient       bigint(20)  (NULL)     YES             (NULL)                   s
 private int noCommande;
 private double totalCommande;
 private int noClient;
-public CommandesClients(int noCommande, double totalCommande, int noClient) {
+public CommandeClient(int noCommande, double totalCommande, int noClient) {
 	super();
 	this.noCommande = noCommande;
 	this.totalCommande = totalCommande;

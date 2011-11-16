@@ -1,10 +1,10 @@
-package com.isi.rm.prjepiceriejeanguy.actions;
+package com.isi.prjejg.actions;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.isi.rm.prjepiceriejeanguy.services.ConnecteurBD;
+import com.isi.prjejg.services.ConnecteurBD;
 
 public class LogoutClientAction extends Action{
 	public LogoutClientAction(ConnecteurBD cbd, String destOk, String destBad, boolean reqLogin) {

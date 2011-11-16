@@ -1,12 +1,12 @@
-package com.isi.rm.prjepiceriejeanguy.managers;
+package com.isi.prjejg.managers;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.isi.rm.prjepiceriejeanguy.entites.ProduitCommandes;
-import com.isi.rm.prjepiceriejeanguy.services.ConnecteurBD;
+import com.isi.prjejg.entites.ProduitCommande;
+import com.isi.prjejg.services.ConnecteurBD;
 
 public class ProduitCommandesManager {
 	private ConnecteurBD cbd;
@@ -17,8 +17,8 @@ public class ProduitCommandesManager {
 		
 	}
 	
-	public ArrayList<ProduitCommandes> getAllProduitCommandes(){
-		ArrayList<ProduitCommandes> alPC= new ArrayList<ProduitCommandes>();
+	public ArrayList<ProduitCommande> getAllProduitCommandes(){
+		ArrayList<ProduitCommande> alPC= new ArrayList<ProduitCommande>();
 		String sql = "select * from produitscommandes";
 		PreparedStatement ps = null;
 		ResultSet rs= null;
@@ -42,7 +42,7 @@ public class ProduitCommandesManager {
 			noCategorie         bigint(20)    (NULL)             YES             (NULL)                   select,insert,update,references         
 				 */
 			
-			ProduitCommandes pc = new ProduitCommandes(rs.getInt("noProduit"),
+			ProduitCommande pc = new ProduitCommande(rs.getInt("noProduit"),
 							rs.getString("descriptionProduit"),
 							rs.getInt("qteProduit"), 
 							rs.getString("formatProduit"), 

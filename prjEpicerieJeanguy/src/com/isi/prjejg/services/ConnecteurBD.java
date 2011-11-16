@@ -1,4 +1,4 @@
-package com.isi.rm.prjepiceriejeanguy.services;
+package com.isi.prjejg.services;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -1,4 +1,4 @@
-package com.isi.rm.prjepiceriejeanguy.entites;
+package com.isi.prjejg.entites;
 
 public class Categorie {
 
