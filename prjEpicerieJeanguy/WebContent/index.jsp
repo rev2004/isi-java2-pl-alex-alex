@@ -63,6 +63,7 @@
 				</div>
 			
 				<div>
+				<h5>Choisir une catégorie d'aliment</h5>
 		<%for(Categorie c: alC){ %>
 		<a href="<%=url %><%=ListeCategorieAction.class.getName()%>&catId=<%=c.getNoCategorie() %>"><%=c.getDescriptionCategorie() %></a><br/>
 
@@ -71,24 +72,24 @@
 			</div>
 			<div class="module">
 				<div>
-					Module Title
+					Événements
 				</div>
 				<div>
-					Module content<br>
-					Module content<br>
-					Module content<br>
-					Module content
+					<a href="#">Journée Blé D'inde</a><br>
+					<a href="#">Êtes-vous un bon cuistot?</a><br>
+					<a href="#">Lache pas la Patate!</a><br>
+					<a href="#">Charité alimentaire</a>
 				</div>
 			</div>
 			<div class="module">
 				<div>
-					Module Title
+					Recette
 				</div>
 				<div>
-					Module content<br>
-					Module content<br>
-					Module content<br>
-					Module content
+					<a href="http://www.metro.ca/recettes/45/boeuf.fr.html">Boeuf</a><br>
+					<a href="http://www.metro.ca/recettes/47/porc.fr.html">Porc</a><br>
+					<a href="http://www.metro.ca/recettes/47/poulet.fr.html">Volaile</a><br>
+					<a href="http://www.metro.ca/recettes/4/desserts.fr.html">Dessert</a><br>
 				</div>
 			</div>
 		</div>
