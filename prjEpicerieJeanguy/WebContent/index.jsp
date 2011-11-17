@@ -109,33 +109,6 @@
 		</table>
 	</form>
 </div>
-<div class="login popup" id="login">
-	<form action="<%=url %><%=EnumActions.Login.toString() %>" method="post">
-		<table class="login">
-			<tr>
-				<td>
-					Username :
-				</td>
-				<td>
-					<input type="text" name="user">
-				</td>
-			</tr>
-			<tr>
-				<td>
-					Password :
-				</td>
-				<td>
-					<input type="password" name="password">
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2">
-					<input type="submit">
-				</td>
-			</tr>
-		</table>
-	</form>
-</div>
 <div class="container">
 	<!-- ########## HEAD ########## -->
 	<div class="header">
