@@ -201,13 +201,17 @@
 			</div>
 		</div>
 		<div class="rightSidebar">
-			<div class="module">
+			<div class="module" id="panier">
 				<div>
 					Votre Panier
 				</div>
 				<div>
-					<div class="right">0 produit</div>
-					<a href="">Voir votre panier</a>
+					<%if(session.getAttribute("membreInfo") != null) { %>
+					<div class="right"><%=alCP.size() %> produit<%=(alCP.size()>1?"s":"") %></div>
+					<span class="ajax" onClick="requestContent('<%=url %><%=EnumActions.AjaxCartList.toString() %>')">Voir votre panier</span>
+					<% } else { %>
+					<div class="center">Veuillez vous connecter pour voir cotre pannier.</div>
+					<% } %>
 				</div>
 			</div>
 		</div>

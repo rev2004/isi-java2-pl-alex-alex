@@ -21,6 +21,13 @@ public class ProduitsManager {
 		return getAlProduitFromQuery("select * from produits");
 	}
 	
+	public Produit getProduitById(int produitId){
+		ArrayList<Produit> alP = getAlProduitFromQuery("select * from produits where noProduit='"+produitId+"'");
+		if(alP.size() > 0)
+			return alP.get(0);
+		return null;
+	}
+	
 	public ArrayList<Produit> getAllProduitsFromCatId(int CatId){
 		return getAlProduitFromQuery("select * from produits where noCategorie='"+CatId+"'");
 	}
@@ -31,7 +38,7 @@ public class ProduitsManager {
 		ResultSet rs=null;
 		ps= cbd.getPreparedStatement(sql);
 		try {
-			rs =ps.executeQuery();
+			rs=ps.executeQuery();
 			while(rs.next()){
 				Produit p = new Produit(rs.getInt("noProduit"),
 						rs.getString("descriptionProduit"),
@@ -39,22 +46,25 @@ public class ProduitsManager {
 						rs.getString("formatProduit"),
 						rs.getDouble("prixCoutant"),
 						rs.getDouble("prixVendu"),
-						rs.getInt("noCategorie")) ;
+						rs.getInt("noCategorie"),
+						null);
 				alP.add(p);
-				} 
-			}
+			} 
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				ps.close();
+				cbd.fermerConnexion();
+			} 
 			catch (SQLException e) {
 				e.printStackTrace();
-			} finally {
-				try {
-					rs.close();
-					ps.close();
-					cbd.fermerConnexion();
-				} 
-				catch (SQLException e) {
-					e.printStackTrace();
-				}
 			}
+		}
+		CategorieManager cm = new CategorieManager(cbd);
+		for(Produit p : alP)
+			p.setC(cm.getCategorieById(p.getNoCategorie()));
 		return alP;
 	}
 }

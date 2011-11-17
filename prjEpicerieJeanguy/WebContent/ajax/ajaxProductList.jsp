@@ -2,9 +2,18 @@
 <%for(Produit p: alP) { %>
 <div class="produit">
 	<img src="../images/logo.gif">
-	<div><%=p.getDescriptionProduit() %></div>
-	<div><%=p.getNoCategorie() %></div>
-	<div>9.99 $</div>
-	<div><a href="#">Acheter</a></div>
+	<div><b><%=p.getDescriptionProduit() %></b></div>
+	<div><%=p.getC().getDescriptionCategorie() %></div>
+	<div><%=p.getPrixVendu() %> $</div>
+	<div>
+	<%
+	if(session.getAttribute("membreInfo") == null) {
+	%>
+		<span class="ajax" onClick="showPopup('login')">Acheter</span>
+	<% } else { %>
+		<span class="ajax" onClick="requestContentPanier('<%=url%><%=EnumActions.AddPanier.toString()%>&prodId=<%=p.getNoProduit()%>')">Acheter</span>
+	<% } %>
+	</div>
 </div>
 <%} %>
+<div class="clear"></div>
