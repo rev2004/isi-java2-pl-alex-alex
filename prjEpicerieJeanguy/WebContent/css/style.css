@@ -5,6 +5,26 @@ body {
 	padding:0;
 	margin:0;
 }
+.produit {
+	border:solid 1px #ccc;
+	width: 100px;
+	height: 150px;
+	border-radius: 5px 5px;
+	padding: 10px;
+	text-align:center;
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(-45deg,  #ffffff 0%, #e5e5e5 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(-45deg,  #ffffff 0%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(-45deg,  #ffffff 0%,#e5e5e5 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(-45deg,  #ffffff 0%,#e5e5e5 100%); /* IE10+ */
+	background: linear-gradient(-45deg,  #ffffff 0%,#e5e5e5 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+.produit img {
+	width: 100px;
+	height: 100px;
+}
 .error {
 	color:red;
 	font-weight:bold;
@@ -12,11 +32,12 @@ body {
 .module a:before {
 	content:'>';
 }
-a {
+a, .ajax {
 	text-decoration:none;
 	color:#666;
 }
-a:hover {
+a:hover, .ajax:hover{
+	cursor:pointer;
 	color:#999;
 }
 .container {
