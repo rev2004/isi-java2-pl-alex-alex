@@ -65,10 +65,7 @@
 			
 				<div>
 				<h5>Choisir une catégorie d'aliment</h5>
-		<%for(Categorie c: alC){ %>
-		<span class="ajax" onClick="requestContent('<%=url %><%=EnumActions.AjaxCategorie.toString() %>&catId=<%=c.getNoCategorie() %>')"><%=c.getDescriptionCategorie() %></span><br/>
-
-					<%} %>
+				<%for(Categorie c: alC){ %><span class="ajax" onClick="requestContent('<%=url %><%=EnumActions.AjaxCategorie.toString() %>&catId=<%=c.getNoCategorie() %>')"><%=c.getDescriptionCategorie() %></span><br/><%} %>
 				</div>
 			</div>
 			<div class="module">
@@ -90,8 +87,7 @@
 					<a href="http://www.metro.ca/recettes/45/boeuf.fr.html">Boeuf</a><br>
 					<a href="http://www.metro.ca/recettes/47/porc.fr.html">Porc</a><br>
 					<a href="http://www.metro.ca/recettes/47/poulet.fr.html">Volaile</a><br>
-					<a href="http://www.metro.ca/recettes/4/desserts.fr.html">Dessert</a><br>
-					<span onClick="ajouterProspect('/prjP33Final/go')">AjaxTester</span>
+					<a href="http://www.metro.ca/recettes/4/desserts.fr.html">Dessert</a>
 				</div>
 			</div>
 		</div>
@@ -104,16 +100,13 @@
 			</div>
 		</div>
 		<div class="rightSidebar">
-			<!--
 			<div class="module">
 				<div>
-					Module Title
+					Votre Panier
 				</div>
 				<div>
-					Module content<br>
-					Module content<br>
-					Module content<br>
-					Module content
+					0 produit<br>
+					<a href="">Voir votre panier</a>
 				</div>
 			</div>
 			-->
