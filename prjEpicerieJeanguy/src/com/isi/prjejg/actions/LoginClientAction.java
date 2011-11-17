@@ -31,7 +31,7 @@ public class LoginClientAction  extends Action {
 			HttpSession session = request.getSession(true);
 			
 			//Cookies
-			Cookie profileCookie = new Cookie("User_Cookie", user);
+			Cookie profileCookie = new Cookie("profileCookie", user);
 			profileCookie.setMaxAge(365*24*60*60);
 			response.addCookie(profileCookie);
 			
