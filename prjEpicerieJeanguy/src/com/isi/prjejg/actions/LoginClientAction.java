@@ -1,5 +1,6 @@
 package com.isi.prjejg.actions;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -14,7 +15,7 @@ public class LoginClientAction  extends Action {
 		// TODO Auto-generated constructor stub
 	}
 	
-
+	
 
 
 	@Override
@@ -28,6 +29,12 @@ public class LoginClientAction  extends Action {
 		if(login != null) {
 			
 			HttpSession session = request.getSession(true);
+			
+			//Cookies
+			Cookie profileCookie = new Cookie("User_Cookie", user);
+			profileCookie.setMaxAge(365*24*60*60);
+			response.addCookie(profileCookie);
+			
 			session.setAttribute("membreInfo", login);
 			destination = destOk;
 		} else {
