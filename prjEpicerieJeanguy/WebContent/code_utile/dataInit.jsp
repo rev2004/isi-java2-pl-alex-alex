@@ -22,4 +22,15 @@ if(request.getAttribute("lstCart") != null)
 	alCP = (ArrayList<CartProduit>)request.getAttribute("lstCart");
 
 String titre = "Index";
+
+String profileCookie = "";
+Cookie[] cookies = request.getCookies();
+if(cookies!=null){
+	for (int i=0; i<cookies.length; i++) {
+	String nomCookie = cookies[i].getName();
+		if (nomCookie.equals("profileCookie")) {
+			profileCookie = cookies[i].getValue();
+		}
+	}
+}
 %>
