@@ -18,7 +18,7 @@ public class ProduitsManager {
 	
 
 	public ArrayList<Produit> getAllProduits(){
-		return getAlProduitFromQuery("select * from produits");
+		return getAlProduitFromQuery("select * from produits pr INNER JOIN categories cat on pr.noCategorie=cat.noCategorie");
 	}
 	
 	public Produit getProduitById(int produitId){
