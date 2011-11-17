@@ -24,7 +24,7 @@ public class LoginClientAction  extends Action {
 		
 		ClientManager mm = new ClientManager(cbd);
 		Client login = mm.getLoginMembre(user, password);
-		System.out.println("FUCK YOU");
+		
 		if(login != null) {
 			HttpSession session = request.getSession(true);
 			session.setAttribute("membreInfo", login);
