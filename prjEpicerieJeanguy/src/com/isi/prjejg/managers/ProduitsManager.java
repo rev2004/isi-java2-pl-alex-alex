@@ -13,52 +13,58 @@ public class ProduitsManager {
 
 	private ConnecteurBD cbd;
 	
-	
-public ArrayList<Produit> getAllProduits(){
-	
-	ArrayList<Produit> alP = new ArrayList<Produit>();
-	String sql ="select * from produits";
-	PreparedStatement ps=null;
-	ResultSet rs=null;
-	ps= cbd.getPreparedStatement(sql);
-	
-	try {
-		rs =ps.executeQuery();
-		
-	//parcourir le résultat
-	while(rs.next()){
-		//récupere le data
-		
-				
-		Produit p = new Produit(rs.getInt("noProduit"),
-				rs.getString("descriptionProduit"),
-				rs.getInt("qteProduit"), 
-				rs.getString("formatProduit"),
-				rs.getDouble("prixcountant"),
-				rs.getDouble("prixVendu"),
-				rs.getInt("noCategorie")) ;
-		alP.add(p);
-		} 
+
+	public ArrayList<Produit> getAllProduits(){
+		return getAlProduitFromQuery("select * from produits");
 	}
-	catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
+	
+	public ArrayList<Produit> getAllProduitsFromCatId(int CatId){
+		return getAlProduitFromQuery("select * from produits where noCategorie='"+CatId+"'");
 	}
-	finally{
-		//fermer les objets
+	
+	private ArrayList<Produit> getAlProduitFromQuery(String sql) {
+		ArrayList<Produit> alP = new ArrayList<Produit>();
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+		ps= cbd.getPreparedStatement(sql);
+		
 		try {
-			rs.close();
-			ps.close();
-			cbd.fermerConnexion();
-		} 
+			rs =ps.executeQuery();
+			
+		//parcourir le résultat
+		while(rs.next()){
+			//récupere le data
+			
+					
+			Produit p = new Produit(rs.getInt("noProduit"),
+					rs.getString("descriptionProduit"),
+					rs.getInt("qteProduit"), 
+					rs.getString("formatProduit"),
+					rs.getDouble("prixcountant"),
+					rs.getDouble("prixVendu"),
+					rs.getInt("noCategorie")) ;
+			alP.add(p);
+			} 
+		}
 		catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		finally{
+			//fermer les objets
+			try {
+				rs.close();
+				ps.close();
+				cbd.fermerConnexion();
+			} 
+			catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		}
-	
-	return alP;
-}
+		
+		return alP;
+	}
 	
 }
