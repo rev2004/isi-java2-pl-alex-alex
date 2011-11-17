@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.isi.prjejg.actions.Action;
 import com.isi.prjejg.actions.GenerateIndexAction;
+import com.isi.prjejg.actions.ListeProduitAction;
 import com.isi.prjejg.actions.LoginClientAction;
 import com.isi.prjejg.enums.EnumActions;
 import com.isi.prjejg.services.ConnecteurBD;
@@ -49,7 +50,7 @@ public class ControleurServlet extends HttpServlet {
 		hActions.put(EnumActions.Index.toString(),new GenerateIndexAction(cbd, "/index.jsp", "/erreur.jsp", false));
 		hActions.put(EnumActions.Login.toString(),new LoginClientAction(cbd, "/index.jsp", "/index.jsp", false));
 		//Ajax
-		hActions.put(EnumActions.AjaxCategorie.toString(),new GenerateIndexAction(cbd, "/index.jsp", "/erreur.jsp", false));
+		hActions.put(EnumActions.AjaxCategorie.toString(),new ListeProduitAction(cbd, "/ajax/ajaxProductList.jsp", "/ajax/ajaxError.jsp", false));
 		
 	}
 

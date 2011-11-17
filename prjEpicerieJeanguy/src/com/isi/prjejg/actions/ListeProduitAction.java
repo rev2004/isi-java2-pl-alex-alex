@@ -20,6 +20,7 @@ public class ListeProduitAction extends Action{
 		super.doTheJob(request, response);
 		ProduitsManager pm = new ProduitsManager();
 		String catId = (String)request.getAttribute("catId");
+		System.out.println((String)request.getAttribute("catId"));
 		ArrayList<Produit> alP = pm.getAllProduitsFromCatId(Integer.parseInt(catId));
 		request.setAttribute("lstProduit", alP);
 		destination = destOk;	
