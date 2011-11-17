@@ -6,12 +6,12 @@ import java.util.HashMap;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.isi.prjejg.actions.Action;
+import com.isi.prjejg.actions.EnregistrerClientAction;
 import com.isi.prjejg.actions.GenerateIndexAction;
 import com.isi.prjejg.actions.ListeProduitAction;
 import com.isi.prjejg.actions.LoginClientAction;
@@ -47,10 +47,11 @@ public class ControleurServlet extends HttpServlet {
 		hActions = new HashMap<String, Action>();
 		
 		//On déclare tout les actions du site
-		//Page Complète
+		//Page Complète 
 		hActions.put(EnumActions.Index.toString(),new GenerateIndexAction(cbd, "/index.jsp", "/erreur.jsp", false));
 		hActions.put(EnumActions.Login.toString(),new LoginClientAction(cbd, "/index.jsp", "/index.jsp", false));
 		hActions.put(EnumActions.Logout.toString(),new LogoutClientAction(cbd, "/index.jsp", "/index.jsp", true));
+		hActions.put(EnumActions.Enregistrer.toString(),new EnregistrerClientAction(cbd, "/index.jsp", "/index.jsp", false));
 		//Ajax
 		hActions.put(EnumActions.AjaxCategorie.toString(),new ListeProduitAction(cbd, "/ajax/ajaxProductList.jsp", "/ajax/ajaxError.jsp", false));
 		

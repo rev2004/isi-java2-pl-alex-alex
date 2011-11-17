@@ -3,15 +3,19 @@ package com.isi.prjejg.managers;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
-
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.isi.prjejg.entites.Client;
 import com.isi.prjejg.services.ConnecteurBD;
 
 public class ClientManager {
-	
 	private ConnecteurBD cbd;
+	
 	
 	public ClientManager(ConnecteurBD cbd){
 		
@@ -28,21 +32,7 @@ public class ClientManager {
 			rs = ps.executeQuery();
 			
 			while(rs.next()){
-				/*private int noClient;
-String nomClient;
-String prenomClient;
-private int noCiviqueClient;
-String rueClient;
-String codePostalClient;
-String villeClient;
-String noCarteCredit;
-String telephoneClient;
-String courrielClient;
-String passwordClient;
-				 * 
-				 * 
-				 */
-				
+
 				Client c = new Client (rs.getInt("noClient"),
 										rs.getString("nomClient"),
 										rs.getString("prenomClient"),
@@ -73,7 +63,7 @@ String passwordClient;
 	}
 	
 	private ArrayList<Client> getAlClientsFromQuery(String req){
-		ArrayList<Client> alM = new ArrayList<Client>(); 
+		ArrayList<Client> alC = new ArrayList<Client>(); 
 		PreparedStatement ps=null;
 		ResultSet rs= null;
 		ps= cbd.getPreparedStatement(req);
@@ -92,7 +82,7 @@ String passwordClient;
 						rs.getString("telephoneClient"),
 						rs.getString("courrielClient"),
 						rs.getString("passwordClient"));
-				alM.add(m);	
+				alC.add(m);	
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -105,7 +95,54 @@ String passwordClient;
 				e.printStackTrace();
 			}
 		}	
-		return alM;
+		return alC;
 	}
-
-}
+	
+	
+	public int enregistrerClient(Client c){
+		int id=-1;
+	  //Add the data into the database
+		PreparedStatement pst;
+	String sql = 
+	   "insert into clients (nomClient,prenomClient,noCiviqueClient,rueClient,codePostalClient,villeClient,noCarteCredit,telephoneClient,courrielClient,passwordClient) values(?,?,?,?,?,?,?,?,?,?)";
+	   pst =  cbd.getPreparedStatement(sql);
+		  try {
+			  pst.setString(1, c.getNomClient());
+			  pst.setString(2, c.getPrenomClient());
+			  pst.setInt(3, c.getNoCiviqueClient());
+			  pst.setString(4, c.getRueClient());
+			  pst.setString(5, c.getCodePostalClient());
+			  pst.setString(6, c.getVilleClient());
+			  pst.setString(7, c.getNoCarteCredit());
+			  pst.setString(8, c.getTelephoneClient());
+			  pst.setString(9, c.getCourrielClient());
+			  pst.setString(10, c.getPasswordClient());
+			  						  
+		  //récupérer la string préparé
+	  sql= pst.toString();
+	  System.out.println(sql);
+	  sql= sql.substring(sql.indexOf(":")+2);
+	  System.out.println(sql);
+	  
+	  //executer le insert et récupérer le id (autonumber) généré
+	  pst.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
+	  ResultSet rs = pst.getGeneratedKeys();
+	  rs.next();
+	  id = rs.getInt("GENERATED_KEY");
+	
+	
+	  } catch (SQLException e) {
+		  // TODO Auto-generated catch block
+		  e.printStackTrace();
+	  } finally {
+		  try {
+			  pst.close();
+			  cbd.fermerConnexion();
+		  } catch (SQLException e) {
+			  // TODO Auto-generated catch block
+					  e.printStackTrace();
+				  }
+			  }
+	  return id;
+			}
+	}
