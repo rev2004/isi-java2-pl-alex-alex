@@ -8,6 +8,9 @@ body {
 .right {
 	text-align:right;
 }
+.center {
+	text-align:center;
+}
 .produit {
 	font-weight:normal;
 	font-size:10px;

@@ -18,11 +18,8 @@ public class ListeProduitAction extends Action{
 	@Override
 	public void doTheJob(HttpServletRequest request, HttpServletResponse response) {
 		super.doTheJob(request, response);
-		
 		ProduitsManager pm = new ProduitsManager(cbd);
-		
 		String catId = (String)request.getParameter("catId");
-		
 		ArrayList<Produit> alP = pm.getAllProduitsFromCatId(Integer.parseInt(catId));
 		request.setAttribute("lstProd", alP);
 		

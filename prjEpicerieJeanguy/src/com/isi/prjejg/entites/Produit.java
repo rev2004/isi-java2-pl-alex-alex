@@ -12,17 +12,17 @@ noCategorie         bigint(20)    (NULL)             YES             (NULL)     
 */
 	
 	private int noProduit;
-	String descriptionProduit;
+	private String descriptionProduit;
 	private int qteProduit;
-	String formatProduit;
+	private String formatProduit;
 	private double prixCoutant;
 	private double prixVendu;
 	private int noCategorie;
-	
+	private Categorie c;
 	
 	public Produit(int noProduit, String descriptionProduit, int qteProduit,
 			String formatProduit, double prixCoutant, double prixVendu,
-			int noCategorie) {
+			int noCategorie, Categorie c) {
 		super();
 		this.noProduit = noProduit;
 		this.descriptionProduit = descriptionProduit;
@@ -31,6 +31,7 @@ noCategorie         bigint(20)    (NULL)             YES             (NULL)     
 		this.prixCoutant = prixCoutant;
 		this.prixVendu = prixVendu;
 		this.noCategorie = noCategorie;
+		this.c = c;
 	}
 
 
@@ -101,6 +102,16 @@ noCategorie         bigint(20)    (NULL)             YES             (NULL)     
 
 	public void setNoCategorie(int noCategorie) {
 		this.noCategorie = noCategorie;
+	}
+
+
+	public Categorie getC() {
+		return c;
+	}
+
+
+	public void setC(Categorie c) {
+		this.c = c;
 	}
 	
 	

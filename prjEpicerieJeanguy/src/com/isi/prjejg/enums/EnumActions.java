@@ -5,5 +5,10 @@ public enum EnumActions {
 	Login,
 	AjaxCategorie,
 	Logout,
+	AjaxCartList,
+	ModulePanier,
+	AddPanier,
+	EnleverPanier,
+	EnleverUnPanier,
 	Enregistrer
 }

@@ -14,10 +14,20 @@ public class CategorieManager  {
 	public CategorieManager(ConnecteurBD cbd) {
 		this.cbd = cbd;
 	}
+
+	public ArrayList<Categorie> getAllCategories(){
+		return getAlCategoriesFromQuery("select * from categories");
+	}
+
+	public Categorie getCategorieById(int catId){
+		ArrayList<Categorie> alC = getAlCategoriesFromQuery("select * from categories where noCategorie='"+catId+"'");
+		if(alC.size()>0)
+			return alC.get(0);
+		return null;
+	}
 	
-	public ArrayList<Categorie> getAllCategories(){ 
+	private ArrayList<Categorie> getAlCategoriesFromQuery(String sql){ 
 		ArrayList<Categorie> alC= new ArrayList<Categorie>();
-		String sql = "select * from categories";
 		PreparedStatement ps = null;
 		ResultSet rs= null;
 		
