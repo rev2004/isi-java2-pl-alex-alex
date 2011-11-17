@@ -10,8 +10,8 @@ image                 varchar(100)  latin1_swedish_ci  YES             (NULL)   
 */
 	
 private int noCategorie;
-String descriptionCategorie;
-String image;
+private String descriptionCategorie;
+private String image;
 
 public Categorie(int noCategorie,String descriptionCategorie, String image) {
 		super();

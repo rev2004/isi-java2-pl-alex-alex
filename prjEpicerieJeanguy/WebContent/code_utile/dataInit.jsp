@@ -17,5 +17,9 @@ ArrayList<Categorie> alC = new ArrayList<Categorie>();
 if(request.getAttribute("lstCat") != null)
 	alC = (ArrayList<Categorie>)request.getAttribute("lstCat");
 
+ArrayList<Categorie> alCP = new ArrayList<Categorie>();
+if(request.getAttribute("lstCart") != null)
+	alCP = (ArrayList<Categorie>)request.getAttribute("lstCart");
+
 String titre = "Index";
 %>

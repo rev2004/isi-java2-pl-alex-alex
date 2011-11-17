@@ -5,6 +5,9 @@ body {
 	padding:0;
 	margin:0;
 }
+.right {
+	text-align:right;
+}
 .produit {
 	font-weight:normal;
 	font-size:10px;
@@ -35,8 +38,8 @@ body {
 	color:red;
 	font-weight:bold;
 }
-.module a:before {
-	content:'>';
+.module a:before, .module span:before {
+	content:'> ';
 }
 a, .ajax {
 	text-decoration:none;
@@ -59,7 +62,7 @@ a:hover, .ajax:hover{
 	margin-left:auto;
 	margin-right:auto;
 }
-.module div:first-child{
+.module > div:first-child{
 	border:solid 1px black;
 	border-bottom:0;
 	border-top-left-radius: 5px 5px;
@@ -112,7 +115,7 @@ a:hover, .ajax:hover{
 	border-bottom-left-radius: 5px 5px;
 	border-bottom-right-radius: 5px 5px;
 }
-.navigation div {
+.navigation > div {
 	width:150px;
 	height:30px;
 	text-align:center;
@@ -120,7 +123,7 @@ a:hover, .ajax:hover{
 	vertical-align:middle;
 	border-left:solid 1px #bbb;
 }
-.navigation div:first-child {
+.navigation > div:first-child {
 	border:0;
 }
 .navigation div:hover {
