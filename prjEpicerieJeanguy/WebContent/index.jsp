@@ -97,13 +97,14 @@
 		</div>
 		<div class="content" id="content">
 			<div>
-				Titre
+				<%=titre %>
 			</div>
-			<div>
+			<div class="error">
 				<%=message %>
 			</div>
 		</div>
 		<div class="rightSidebar">
+			<!--
 			<div class="module">
 				<div>
 					Module Title
@@ -115,39 +116,7 @@
 					Module content
 				</div>
 			</div>
-			<div class="module">
-				<div>
-					Module Title
-				</div>
-				<div>
-					Module content<br>
-					Module content<br>
-					Module content<br>
-					Module content
-				</div>
-			</div>
-			<div class="module">
-				<div>
-					Module Title
-				</div>
-				<div>
-					Module content<br>
-					Module content<br>
-					Module content<br>
-					Module content
-				</div>
-			</div>
-			<div class="module">
-				<div>
-					Module Title
-				</div>
-				<div>
-					Module content<br>
-					Module content<br>
-					Module content<br>
-					Module content
-				</div>
-			</div>
+			-->
 		</div>
 	</div>
 	<div class="clear"></div>
