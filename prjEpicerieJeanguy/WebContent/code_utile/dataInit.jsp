@@ -1,8 +1,5 @@
 <%@page import="com.isi.prjejg.entites.*" %>
-<%@page import="com.isi.prjejg.actions.*" %>
-<%@page import="com.isi.prjejg.managers.*" %>
-<%@page import="com.isi.prjejg.controllers.*" %>
-<%@page import="com.isi.prjejg.services.*" %>
+<%@page import="com.isi.prjejg.enums.EnumActions" %>
 <%@page import="java.util.*" %>
 <%
 String nomContext = application.getServletContextName();
@@ -13,4 +10,5 @@ String message = (request.getAttribute("message")==null?"":(String)request.getAt
 String url= "/"+nomContext+"/"+urlControleur+"?"+paramAction+"=";
 
 ArrayList<Categorie> alC = (ArrayList<Categorie>)request.getAttribute("lstCat");
+String titre = "Index";
 %>
