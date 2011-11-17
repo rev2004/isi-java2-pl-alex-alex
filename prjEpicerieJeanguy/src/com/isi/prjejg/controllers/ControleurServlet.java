@@ -91,43 +91,7 @@ public class ControleurServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
-	/*
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//prendre acte de la job demandée par le view
-		System.out.println("le servlet répond");
-		String jobDemandee = request.getParameter(nomParamJob);
-		String destinationView="/intro.jsp";
-		if(jobDemandee==null){
-			//faire la job par défaut
-			response.sendRedirect("intro.jsp");
-			return;			
-		}
-		//appeler l'action responsable de ce travail
-		if(jobDemandee.equals("listeMembre")){
-			System.out.println("job= listeMembre");
-			ListeCategorieAction lca = new ListeCategorieAction(cbd,"/listeMembres.jsp" );
-			lca.listerCategorie(request);
-			destinationView = lca.getDestination();
-		}
-		else if(jobDemandee.equals("inscriptionForm")){
-			System.out.println("job= inscriptionForm");
-		}
-		else if(jobDemandee.equals("membresParCat")){
-			ListeMembreAction lma = new ListeMembreAction(cbd, "/listeMembres.jsp");
-			lma.obtenirListeMembres(request);
-			destinationView = lma.getDestination();
-		}
-		
-		//transférer vers le view de destination
-		RequestDispatcher rd = this.getServletContext().getRequestDispatcher(destinationView);
-		rd.forward(request, response);
-		
-		
-		
-				
-		
-	}
-	*/
+	
+	
 
 }
