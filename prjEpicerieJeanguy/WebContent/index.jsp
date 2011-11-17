@@ -52,7 +52,7 @@
 		<div class="navigation">
 			<div>Accueil</div>
 			<%	if(session.getAttribute("membreInfo") != null){
-				%><div onClick="requestContent('<%=url %><%=EnumActions.AjaxCategorie.toString() %>')">Déconnecter</div>
+				%><div onClick="document.location= '<%=url %><%=EnumActions.Logout.toString() %>'">Déconnecter</div>
 			<%}else{
 				%><div onClick="showPopup('login')">Login</div>
 				
