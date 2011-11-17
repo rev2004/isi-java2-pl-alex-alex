@@ -38,29 +38,16 @@ public class CommandesClientsManager {
 		
 		try {
 			rs =ps.executeQuery();
-			
-		//parcourir le résultat
-		while(rs.next()){
-			//récupere le data
-			
-			/*
-			 * noCommande     bigint(20)  (NULL)     NO      PRI     (NULL)   auto_increment  select,insert,update,references         
-			totalCommande  double      (NULL)     YES             (NULL)                   select,insert,update,references         
-			noClient       bigint(20)  (NULL)     YES             (NULL)                   select,insert,update,references         
-
-			 */
-			
-			CommandeClient cc = new CommandeClient(rs.getInt("noCommande"),
-							rs.getDouble("totalCommande"), 
-							rs.getInt("noClient")) ;
-			alCC.add(cc);
+			while(rs.next()){
+				CommandeClient cc = new CommandeClient(rs.getInt("noCommande"),
+								rs.getDouble("totalCommande"), 
+								rs.getInt("noClient")) ;
+				alCC.add(cc);
 			} 
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		finally{
+		} finally {
 			//fermer les objets
 			try {
 				rs.close();
@@ -71,12 +58,7 @@ public class CommandesClientsManager {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-			}
-		
+		}
 		return alCC;
 	}
-
-	
-	
 }

@@ -14,6 +14,6 @@ function requestContent(path){
 }
 function receiveContent(){
 	if(xmlHttp.readyState== 4){
-		$("#content > div + div").html(xmlHttp.responseText);
+		$("#contentAjax").html(xmlHttp.responseText);
 	}
 }

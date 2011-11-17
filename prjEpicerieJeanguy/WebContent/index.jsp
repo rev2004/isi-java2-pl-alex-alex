@@ -98,12 +98,15 @@
 				</div>
 			</div>
 		</div>
-		<div class="content" id="content">
+		<div class="content">
 			<div>
 				<%=titre %>
 			</div>
-			<div class="error">
-				<%=message %>
+			<div>
+				<div class="error">
+					<%=message %>
+				</div>
+				<div id="contentAjax"></div>
 			</div>
 		</div>
 		<div class="rightSidebar">
@@ -112,11 +115,10 @@
 					Votre Panier
 				</div>
 				<div>
-					0 produit<br>
+					<div class="right">0 produit</div>
 					<a href="">Voir votre panier</a>
 				</div>
 			</div>
-			-->
 		</div>
 	</div>
 	<div class="clear"></div>
