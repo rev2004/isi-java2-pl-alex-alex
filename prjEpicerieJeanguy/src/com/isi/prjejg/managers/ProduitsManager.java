@@ -10,8 +10,11 @@ import com.isi.prjejg.entites.Produit;
 import com.isi.prjejg.services.ConnecteurBD;
 
 public class ProduitsManager {
-
 	private ConnecteurBD cbd;
+	
+	public ProduitsManager(ConnecteurBD cbd) {
+		this.cbd = cbd;
+	}
 	
 
 	public ArrayList<Produit> getAllProduits(){
@@ -27,44 +30,31 @@ public class ProduitsManager {
 		PreparedStatement ps=null;
 		ResultSet rs=null;
 		ps= cbd.getPreparedStatement(sql);
-		
 		try {
 			rs =ps.executeQuery();
-			
-		//parcourir le résultat
-		while(rs.next()){
-			//récupere le data
-			
-					
-			Produit p = new Produit(rs.getInt("noProduit"),
-					rs.getString("descriptionProduit"),
-					rs.getInt("qteProduit"), 
-					rs.getString("formatProduit"),
-					rs.getDouble("prixcountant"),
-					rs.getDouble("prixVendu"),
-					rs.getInt("noCategorie")) ;
-			alP.add(p);
-			} 
-		}
-		catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		finally{
-			//fermer les objets
-			try {
-				rs.close();
-				ps.close();
-				cbd.fermerConnexion();
-			} 
-			catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			while(rs.next()){
+				Produit p = new Produit(rs.getInt("noProduit"),
+						rs.getString("descriptionProduit"),
+						rs.getInt("qteProduit"), 
+						rs.getString("formatProduit"),
+						rs.getDouble("prixCoutant"),
+						rs.getDouble("prixVendu"),
+						rs.getInt("noCategorie")) ;
+				alP.add(p);
+				} 
 			}
-			
-		}
-		
+			catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					rs.close();
+					ps.close();
+					cbd.fermerConnexion();
+				} 
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
 		return alP;
 	}
-	
 }

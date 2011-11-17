@@ -9,53 +9,38 @@ import com.isi.prjejg.entites.Categorie;
 import com.isi.prjejg.services.ConnecteurBD;
 
 public class CategorieManager  {
-
 	private ConnecteurBD cbd;
 	
 	public CategorieManager(ConnecteurBD cbd) {
-		
 		this.cbd = cbd;
 	}
+	
 	public ArrayList<Categorie> getAllCategories(){ 
-	ArrayList<Categorie> alC= new ArrayList<Categorie>();
-	String sql = "select * from categories";
-	PreparedStatement ps = null;
-	ResultSet rs= null;
-	
-	ps=cbd.getPreparedStatement(sql);
-	
-	try {
-		rs =ps.executeQuery();
+		ArrayList<Categorie> alC= new ArrayList<Categorie>();
+		String sql = "select * from categories";
+		PreparedStatement ps = null;
+		ResultSet rs= null;
 		
-	//parcourir le résultat
-	while(rs.next()){
-		//récupere le data
+		ps=cbd.getPreparedStatement(sql);
 		
-		Categorie c = new Categorie(rs.getInt("noCategorie"),rs.getString("descriptionCategorie"),rs.getString("image")) ;
-		alC.add(c);
-		} 
-	}
-	catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	finally{
-		//fermer les objets
 		try {
-			rs.close();
-			ps.close();
-			cbd.fermerConnexion();
-		} 
-		catch (SQLException e) {
-			// TODO Auto-generated catch block
+			rs =ps.executeQuery();
+			while(rs.next()){
+				Categorie c = new Categorie(rs.getInt("noCategorie"),rs.getString("descriptionCategorie"),rs.getString("image")) ;
+				alC.add(c);
+			}
+		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				ps.close();
+				cbd.fermerConnexion();
+			} 
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
-		
-		}
-	
-	return alC;
-}
-
-
-	
+		return alC;
+	}
 }
