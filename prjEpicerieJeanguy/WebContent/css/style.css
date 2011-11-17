@@ -207,7 +207,7 @@ a:hover, .ajax:hover{
 	padding-right:10px;
 	text-align:right;
 }
-div.login {
+div.login, div.enregistrer {
 	display:none;
 	position:absolute;
 	z-index:3;
@@ -228,7 +228,7 @@ div.login {
 	background: linear-gradient(top,  #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0 ); /* IE6-9 */
 }
-.login td {
+.login td, .enregistrer td{
 	font-size:12px;
 }
 table.login {
