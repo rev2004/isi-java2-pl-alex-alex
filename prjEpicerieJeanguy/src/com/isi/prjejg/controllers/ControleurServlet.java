@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.isi.prjejg.actions.Action;
-import com.isi.prjejg.actions.EnumActions;
 import com.isi.prjejg.actions.GenerateIndexAction;
 import com.isi.prjejg.actions.LoginClientAction;
+import com.isi.prjejg.enums.EnumActions;
 import com.isi.prjejg.services.ConnecteurBD;
 
 /**
@@ -44,9 +44,12 @@ public class ControleurServlet extends HttpServlet {
 		//instancier la liste  des actions
 		hActions = new HashMap<String, Action>();
 		
-		// et ainsi de suite pour toutes les actions....
+		//On déclare tout les actions du site
+		//Page Complète
 		hActions.put(EnumActions.Index.toString(),new GenerateIndexAction(cbd, "/index.jsp", "/erreur.jsp", false));
 		hActions.put(EnumActions.Login.toString(),new LoginClientAction(cbd, "/index.jsp", "/index.jsp", false));
+		//Ajax
+		hActions.put(EnumActions.AjaxCategorie.toString(),new GenerateIndexAction(cbd, "/index.jsp", "/erreur.jsp", false));
 		
 	}
 
