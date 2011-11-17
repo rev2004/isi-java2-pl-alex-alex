@@ -4,5 +4,6 @@ public enum EnumActions {
 	Index,
 	Login,
 	AjaxCategorie,
-	Logout
+	Logout,
+	Enregistrer
 }

@@ -20,7 +20,7 @@
 <div class="blackout popup" id="blackout">
 </div> 
 <div class="enregistrer popup" id="enregistrer">
-<form action="<%=url %><%=EnumActions.Login.toString() %>" method="post">
+<form action="<%=url %><%=EnumActions.Enregistrer.toString() %>" method="post">
 		<table class="login">
 			<tr>			
 				<td colspan="2">
