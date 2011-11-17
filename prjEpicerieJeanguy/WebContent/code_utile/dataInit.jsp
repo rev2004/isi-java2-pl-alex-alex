@@ -9,6 +9,13 @@ String message = (request.getAttribute("message")==null?"":(String)request.getAt
 
 String url= "/"+nomContext+"/"+urlControleur+"?"+paramAction+"=";
 
-ArrayList<Categorie> alC = (ArrayList<Categorie>)request.getAttribute("lstCat");
+ArrayList<Produit> alP = new ArrayList<Produit>();
+if(request.getAttribute("lstProd") != null)
+	alP = (ArrayList<Produit>)request.getAttribute("lstProd");
+
+ArrayList<Categorie> alC = new ArrayList<Categorie>();
+if(request.getAttribute("lstCat") != null)
+	alC = (ArrayList<Categorie>)request.getAttribute("lstCat");
+
 String titre = "Index";
 %>

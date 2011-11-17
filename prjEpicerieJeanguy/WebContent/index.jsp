@@ -66,7 +66,7 @@
 				<div>
 				<h5>Choisir une catégorie d'aliment</h5>
 		<%for(Categorie c: alC){ %>
-		<a href="<%=url %><%=EnumActions.Index.toString() %>&catId=<%=c.getNoCategorie() %>"><%=c.getDescriptionCategorie() %></a><br/>
+		<span class="ajax" onClick="requestContent('<%=url %><%=EnumActions.AjaxCategorie.toString() %>&catId=<%=c.getNoCategorie() %>')"><%=c.getDescriptionCategorie() %></span><br/>
 
 					<%} %>
 				</div>
