@@ -14,8 +14,23 @@ public class CommandesClientsManager {
 	private ConnecteurBD cbd;
 	
 	public ArrayList<CommandeClient> getAllCommandesClients(){
-		ArrayList<CommandeClient> alPC= new ArrayList<CommandeClient>();
-		String sql = "select * from CommandesClients";
+		
+	return getAlCommandeClientsFromQuery("select * from clients cl  " +
+				"INNER JOIN commandesclients cc " +
+				"on cl.noClient = cc.noClient");
+		
+	}
+	public ArrayList<CommandeClient> getAllCommandeClientsbyClientID(int ClientId){
+	
+		return getAlCommandeClientsFromQuery("select * from clients cl  " +
+				"INNER JOIN commandesclients cc " +
+				"on cl.noClient = cc.noClient Where cl.noClient='"+ClientId+"'");
+		
+		
+	}
+	
+	private ArrayList<CommandeClient> getAlCommandeClientsFromQuery(String sql){
+		ArrayList<CommandeClient> alCC = new ArrayList<CommandeClient>();
 		PreparedStatement ps = null;
 		ResultSet rs= null;
 		
@@ -35,10 +50,10 @@ public class CommandesClientsManager {
 
 			 */
 			
-			CommandeClient pc = new CommandeClient(rs.getInt("noCommande"),
+			CommandeClient cc = new CommandeClient(rs.getInt("noCommande"),
 							rs.getDouble("totalCommande"), 
 							rs.getInt("noClient")) ;
-			alPC.add(pc);
+			alCC.add(cc);
 			} 
 		}
 		catch (SQLException e) {
@@ -59,7 +74,7 @@ public class CommandesClientsManager {
 			
 			}
 		
-		return alPC;
+		return alCC;
 	}
 
 	
