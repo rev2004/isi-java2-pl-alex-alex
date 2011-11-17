@@ -30,8 +30,7 @@ public class GetCommandeClientAction extends Action{
 		request.setAttribute("lstClientId", alCC);
 		destination = destOk;	
 		
-		
-		
+	
 		
 	}
 
