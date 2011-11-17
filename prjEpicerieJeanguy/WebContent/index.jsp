@@ -18,6 +18,96 @@
 <body>
 <!-- ########## HIDDEN ########## -->
 <div class="blackout popup" id="blackout">
+</div> 
+<div class="enregistrer popup" id="enregistrer">
+<form action="<%=url %><%=EnumActions.Login.toString() %>" method="post">
+		<table class="login">
+			<tr>			
+				<td colspan="2">
+				<h1>Enregistrement</h1>
+				</td>
+			</tr>
+			<tr>			
+				<td>
+					Prénom :
+				</td>
+				<td>
+					<input type="text" name="txprenom">
+				</td>
+			</tr>
+			<tr>			
+				<td>
+					Nom :
+				</td>
+				<td>
+					<input type="text" name="txnom">
+				</td>
+			</tr><tr>			
+				<td>
+					Numéro Civique :
+				</td>
+				<td>
+					<input type="text" name="txnoCivic">
+				</td>
+			</tr><tr>			
+				<td>
+					Rue :
+				</td>
+				<td>
+					<input type="text" name="txRue">
+				</td>
+			</tr><tr>			
+				<td>
+					Code postal :
+				</td>
+				<td>
+					<input type="text" name="txPostal">
+				</td>
+			</tr>
+			<tr>			
+				<td>
+					Ville :
+				</td>
+				<td>
+					<input type="text" name="txVille">
+				</td>
+			</tr>
+			<tr>			
+				<td>
+					Numéro de carte de crédit :
+				</td>
+				<td>
+					<input type="text" name="txnoCredit">
+				</td>
+			</tr><tr>			
+				<td>
+					Téléphone :
+				</td>
+				<td>
+					<input type="text" name="txTelephone">
+				</td>
+			</tr><tr>			
+				<td>
+					Courriel (username) :
+				</td>
+				<td>
+					<input type="text" name="txCourriel">
+				</td>
+			</tr><tr>			
+				<td>
+					Mot de passe :
+				</td>
+				<td>
+					<input type="password" name="txpw">
+				</td>
+				</tr>
+				<tr>
+				<td colspan="2">
+					<input type="submit">
+				</td>
+			</tr>
+		</table>
+	</form>
 </div>
 <div class="login popup" id="login">
 	<form action="<%=url %><%=EnumActions.Login.toString() %>" method="post">
@@ -54,8 +144,9 @@
 			<%	if(session.getAttribute("membreInfo") != null){
 				%><div onClick="document.location= '<%=url %><%=EnumActions.Logout.toString() %>'">Déconnecter</div>
 			<%}else{
-				%><div onClick="showPopup('login')">Login</div>
-				
+				%>
+				<div onClick="showPopup('enregistrer')">Création</div>
+				<div onClick="showPopup('login')">Login</div>
 			<%}
 			
 			%>
