@@ -26,6 +26,7 @@ public class LoginClientAction  extends Action {
 		Client login = mm.getLoginMembre(user, password);
 		
 		if(login != null) {
+			
 			HttpSession session = request.getSession(true);
 			session.setAttribute("membreInfo", login);
 			destination = destOk;
@@ -33,4 +34,7 @@ public class LoginClientAction  extends Action {
 			request.setAttribute("message", "Le mot de passe ou le courriel n'est pas valide.");
 		}
 	}
+
+
+
 }

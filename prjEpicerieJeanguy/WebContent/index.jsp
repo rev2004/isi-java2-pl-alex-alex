@@ -51,7 +51,14 @@
 	<div class="header">
 		<div class="navigation">
 			<div>Accueil</div>
-			<div onClick="showPopup('login')">Login</div>
+			<%	if(session.getAttribute("membreInfo") != null){
+				%><div onClick="requestContent('<%=url %><%=EnumActions.AjaxCategorie.toString() %>')">Déconnecter</div>
+			<%}else{
+				%><div onClick="showPopup('login')">Login</div>
+				
+			<%}
+			
+			%>
 		</div>
 		<img src="images/logo.gif">
 	</div>
