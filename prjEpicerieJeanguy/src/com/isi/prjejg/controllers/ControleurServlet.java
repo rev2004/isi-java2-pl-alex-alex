@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.isi.prjejg.actions.Action;
 import com.isi.prjejg.actions.AddCartProduitAction;
+import com.isi.prjejg.actions.ConfirmCartAction;
 import com.isi.prjejg.actions.EnregistrerClientAction;
 import com.isi.prjejg.actions.GenerateIndexAction;
 import com.isi.prjejg.actions.ListeCartProduitAction;
@@ -57,15 +58,16 @@ public class ControleurServlet extends HttpServlet {
 		hActions.put(EnumActions.Logout.toString(),new LogoutClientAction(cbd, "/index.jsp", "/index.jsp", true));
 		hActions.put(EnumActions.Enregistrer.toString(),new EnregistrerClientAction(cbd, "/index.jsp", "/index.jsp", false));
 		//Ajax
-		hActions.put(EnumActions.AjaxCategorie.toString(),new ListeProduitAction(cbd, "/ajax/ajaxProductList.jsp", "/ajax/ajaxError.jsp", false));
-		hActions.put(EnumActions.AjaxCartList.toString(),new ListeCartProduitAction(cbd, "/ajax/ajaxCartList.jsp", "/ajax/ajaxError.jsp", true));
-		hActions.put(EnumActions.AjaxCheckout.toString(),new ListeCartProduitAction(cbd, "/ajax/ajaxCheckout.jsp", "/ajax/ajaxError.jsp", true));
+		hActions.put(EnumActions.AjaxCategorie.toString(),new GenerateIndexAction(cbd, "/ajax/ajaxProductList.jsp", "/ajax/ajaxError.jsp", false));
+		hActions.put(EnumActions.AjaxCartList.toString(),new GenerateIndexAction(cbd, "/ajax/ajaxCartList.jsp", "/ajax/ajaxError.jsp", true));
+		hActions.put(EnumActions.AjaxCheckout.toString(),new GenerateIndexAction(cbd, "/ajax/ajaxCheckout.jsp", "/ajax/ajaxError.jsp", true));
 		//Module
-		hActions.put(EnumActions.ModulePanier.toString(),new ListeCartProduitAction(cbd, "/ajax/ajaxModulePanier.jsp", "/ajax/ajaxError.jsp", false));
+		hActions.put(EnumActions.ModulePanier.toString(),new GenerateIndexAction(cbd, "/ajax/ajaxModulePanier.jsp", "/ajax/ajaxError.jsp", false));
 		//Action
 		hActions.put(EnumActions.AddPanier.toString(),new AddCartProduitAction(cbd, "/ajax/ajaxModulePanier.jsp", "/ajax/ajaxError.jsp", true));
 		hActions.put(EnumActions.EnleverPanier.toString(),new RemoveCartProduitAction(cbd, "/ajax/ajaxModulePanier.jsp", "/ajax/ajaxError.jsp", true));
 		hActions.put(EnumActions.EnleverUnPanier.toString(),new RemoveUnCartProduitAction(cbd, "/ajax/ajaxModulePanier.jsp", "/ajax/ajaxError.jsp", true));
+		hActions.put(EnumActions.CommitCart.toString(),new ConfirmCartAction(cbd, "/index.jsp", "/ajax/ajaxError.jsp", true));
 		
 	}
 

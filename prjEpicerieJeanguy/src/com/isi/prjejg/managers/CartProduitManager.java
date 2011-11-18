@@ -42,6 +42,10 @@ public class CartProduitManager {
 		}
 	}
 	
+	public void emptyCartProduit(int clientId) {
+		updateCartProduitQuery("DELETE FROM cartproduits WHERE noClient='"+clientId+"'");
+	}
+	
 	public void removeUnCartProduit(int clientId, int produitId) {
 		CartProduit cp = getCartProduitByClientProduit(clientId, produitId);
 		if(cp != null) {
@@ -79,6 +83,7 @@ public class CartProduitManager {
 			rs=ps.executeQuery(); 
 			while(rs.next()){
 				CartProduit pc = new CartProduit(
+						rs.getInt("noClient"),
 						rs.getInt("noProduit"),
 						rs.getInt("qteProduitCommande"),
 						null);

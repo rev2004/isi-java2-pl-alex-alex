@@ -3,9 +3,11 @@ package com.isi.prjejg.managers;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 
+import com.isi.prjejg.entites.CartProduit;
 import com.isi.prjejg.entites.CommandeClient;
 import com.isi.prjejg.services.ConnecteurBD;
 
@@ -13,20 +15,16 @@ public class CommandesClientsManager {
 
 	private ConnecteurBD cbd;
 	
-	public ArrayList<CommandeClient> getAllCommandesClients(){
-		
-	return getAlCommandeClientsFromQuery("select * from clients cl  " +
-				"INNER JOIN commandesclients cc " +
-				"on cl.noClient = cc.noClient");
-		
+	public CommandesClientsManager(ConnecteurBD cbd){
+		this.cbd=cbd;
 	}
-	public ArrayList<CommandeClient> getAllCommandeClientsbyClientID(int ClientId){
 	
-		return getAlCommandeClientsFromQuery("select * from clients cl  " +
-				"INNER JOIN commandesclients cc " +
-				"on cl.noClient = cc.noClient Where cl.noClient='"+ClientId+"'");
-		
-		
+	public ArrayList<CommandeClient> getAllCommandesClients(){
+		return getAlCommandeClientsFromQuery("select * from commandesclients");
+	}
+	
+	public ArrayList<CommandeClient> getAllCommandeClientsbyClientID(int ClientId){
+		return getAlCommandeClientsFromQuery("select * from commandesclients WHERE noClient='"+ClientId+"'");
 	}
 	
 	private ArrayList<CommandeClient> getAlCommandeClientsFromQuery(String sql){
@@ -60,5 +58,27 @@ public class CommandesClientsManager {
 			}
 		}
 		return alCC;
+	}
+	
+	public int addCommandeClient(int clientId, double totalCommande) {
+		String sql="insert into commandesclients (totalCommande, noClient) values ('"+totalCommande+"','"+clientId+"')";
+		PreparedStatement ps = cbd.getPreparedStatement(sql);
+		int id=-1;
+		try {
+			ps.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
+			ResultSet rs = ps.getGeneratedKeys();
+			rs.next();
+			id = rs.getInt("GENERATED_KEY");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+			try {
+				ps.close();
+				cbd.fermerConnexion();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return id;
 	}
 }

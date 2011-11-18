@@ -3,8 +3,10 @@ package com.isi.prjejg.managers;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
+import com.isi.prjejg.entites.CartProduit;
 import com.isi.prjejg.entites.ProduitCommande;
 import com.isi.prjejg.services.ConnecteurBD;
 
@@ -17,6 +19,27 @@ public class ProduitCommandesManager {
 	
 	public ArrayList<ProduitCommande> getAllProduitCommandes(){
 		return getAlProduitFromQuery("select * from produitscommandes");
+	}
+	
+	public void addCartToCommande(CartProduit cp, int noCommande) {
+		updateProduitCommandeQuery("insert into produitscommandes (noProduit, noCommande, qteProduitCommande, prixPaye) values ('"+cp.getNoProduit()+"','"+noCommande+"','"+cp.getQteProduitCommande()+"', '"+cp.getP().getPrixVendu()+"')");
+	}
+	
+	private void updateProduitCommandeQuery(String sql) {
+		PreparedStatement ps = cbd.getPreparedStatement(sql);
+		int id=-1;
+		try {
+			ps.executeUpdate(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+			try {
+				ps.close();
+				cbd.fermerConnexion();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	public ArrayList<ProduitCommande> getAlProduitFromQuery(String sql){

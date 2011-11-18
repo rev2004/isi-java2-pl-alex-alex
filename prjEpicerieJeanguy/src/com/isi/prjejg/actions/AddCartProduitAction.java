@@ -22,7 +22,7 @@ public class AddCartProduitAction extends Action {
 		int produitId = Integer.parseInt((String)request.getParameter("prodId"));
 		cpm.addCartProduit(clientId, produitId);
 
-		new ListeCartProduitAction(cbd, "", "", false).doTheJob(request, response);
+		new GenerateIndexAction(cbd, "", "", false).doTheJob(request, response);
 		
 		destination = destOk;
 	}

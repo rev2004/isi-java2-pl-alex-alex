@@ -36,9 +36,14 @@ public class LoginClientAction  extends Action {
 			response.addCookie(profileCookie);
 			
 			session.setAttribute("membreInfo", login);
+			new GenerateIndexAction(cbd, "", "", false).doTheJob(request, response);
 			destination = destOk;
+			
+			request.setAttribute("message", "Bienvenue "+login.getPrenomClient()+"!");
+			request.setAttribute("message_type", "good");
 		} else {
 			request.setAttribute("message", "Le mot de passe ou le courriel n'est pas valide.");
+			request.setAttribute("message_type", "error");
 		}
 	}
 

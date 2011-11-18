@@ -120,9 +120,7 @@ public class ClientManager {
 			  						  
 		  //récupérer la string préparé
 	  sql= pst.toString();
-	  System.out.println(sql);
 	  sql= sql.substring(sql.indexOf(":")+2);
-	  System.out.println(sql);
 	  
 	  //executer le insert et récupérer le id (autonumber) généré
 	  pst.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);

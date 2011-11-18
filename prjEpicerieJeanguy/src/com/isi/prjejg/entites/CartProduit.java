@@ -1,12 +1,14 @@
 package com.isi.prjejg.entites;
 
 public class CartProduit {
+	private int noClient;
 	private int noProduit;
 	private int qteProduitCommande;
 	private Produit p;
 
-	public CartProduit(int noProduit, int qteProduitCommande, Produit p) {
+	public CartProduit(int noClient, int noProduit, int qteProduitCommande, Produit p) {
 		super();
+		this.noClient = noClient;
 		this.noProduit = noProduit;
 		this.qteProduitCommande = qteProduitCommande;
 		this.p = p;
@@ -34,6 +36,14 @@ public class CartProduit {
 
 	public void setP(Produit p) {
 		this.p = p;
+	}
+
+	public int getNoClient() {
+		return noClient;
+	}
+
+	public void setNoClient(int noClient) {
+		this.noClient = noClient;
 	}
 
 }
