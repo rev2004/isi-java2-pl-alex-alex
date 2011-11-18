@@ -10,5 +10,6 @@ public enum EnumActions {
 	AddPanier,
 	EnleverPanier,
 	EnleverUnPanier,
-	Enregistrer
+	Enregistrer,
+	AjaxCheckout
 }
