@@ -16,7 +16,9 @@ public class LogoutClientAction extends Action{
 		HttpSession session = request.getSession(true);
 		session.invalidate();
 		destination = destOk;
+		new GenerateIndexAction(cbd, "", "", false).doTheJob(request, response);
 		request.setAttribute("message", "Déconnexion réussi");
+		request.setAttribute("message_type", "good");
 	}
 
 }

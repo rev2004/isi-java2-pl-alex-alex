@@ -22,7 +22,7 @@ public class RemoveCartProduitAction extends Action {
 		int produitId = Integer.parseInt((String)request.getParameter("prodId"));
 		cpm.removeCartProduit(clientId, produitId);
 
-		new ListeCartProduitAction(cbd, "", "", false).doTheJob(request, response);
+		new GenerateIndexAction(cbd, "", "", false).doTheJob(request, response);
 		
 		destination = destOk;
 	}

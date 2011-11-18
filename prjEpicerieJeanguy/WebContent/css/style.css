@@ -5,6 +5,10 @@ body {
 	padding:0;
 	margin:0;
 }
+.facture {
+	border:solid 1px black;
+	margin:10px;
+}
 .right {
 	text-align:right;
 }
@@ -39,6 +43,10 @@ body {
 }
 .error {
 	color:red;
+	font-weight:bold;
+}
+.good {
+	color:green;
 	font-weight:bold;
 }
 .module a:before, .module span:before {

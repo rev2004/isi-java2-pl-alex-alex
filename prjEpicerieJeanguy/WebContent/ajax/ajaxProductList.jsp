@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <%@include file="../code_utile/dataInit.jsp" %>
 <%for(Produit p: alP) { %>
 <div class="produit">

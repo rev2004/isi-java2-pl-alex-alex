@@ -18,6 +18,8 @@ public class GenerateIndexAction extends Action {
 		
 		new ListeCategoriesAction(cbd, "", "", false).doTheJob(request, response);
 		new ListeCartProduitAction(cbd, "", "", false).doTheJob(request, response);
+		new ListeCommandeClientAction(cbd, "", "", false).doTheJob(request, response);
+		new ListeProduitAction(cbd, "", "", false).doTheJob(request, response);
 	}
 		
 }
