@@ -42,6 +42,16 @@ public class CartProduitManager {
 		}
 	}
 	
+	public void removeUnCartProduit(int clientId, int produitId) {
+		CartProduit cp = getCartProduitByClientProduit(clientId, produitId);
+		if(cp != null) {
+			if(cp.getQteProduitCommande() == 1)
+				updateCartProduitQuery("DELETE FROM cartproduits WHERE noClient='"+clientId+"' AND noProduit='"+produitId+"'");
+			else
+				updateCartProduitQuery("UPDATE cartproduits SET qteProduitCommande='"+(cp.getQteProduitCommande()-1)+"' WHERE noClient='"+clientId+"' AND noProduit='"+produitId+"'");
+		}
+	}
+	
 	private void updateCartProduitQuery(String sql) {
 		PreparedStatement ps = cbd.getPreparedStatement(sql);
 		try {

@@ -19,6 +19,7 @@ import com.isi.prjejg.actions.ListeProduitAction;
 import com.isi.prjejg.actions.LoginClientAction;
 import com.isi.prjejg.actions.LogoutClientAction;
 import com.isi.prjejg.actions.RemoveCartProduitAction;
+import com.isi.prjejg.actions.RemoveUnCartProduitAction;
 import com.isi.prjejg.enums.EnumActions;
 import com.isi.prjejg.services.ConnecteurBD;
 
@@ -57,12 +58,14 @@ public class ControleurServlet extends HttpServlet {
 		hActions.put(EnumActions.Enregistrer.toString(),new EnregistrerClientAction(cbd, "/index.jsp", "/index.jsp", false));
 		//Ajax
 		hActions.put(EnumActions.AjaxCategorie.toString(),new ListeProduitAction(cbd, "/ajax/ajaxProductList.jsp", "/ajax/ajaxError.jsp", false));
-		hActions.put(EnumActions.AjaxCartList.toString(),new ListeCartProduitAction(cbd, "/ajax/ajaxCartList.jsp", "/ajax/ajaxError.jsp", false));
+		hActions.put(EnumActions.AjaxCartList.toString(),new ListeCartProduitAction(cbd, "/ajax/ajaxCartList.jsp", "/ajax/ajaxError.jsp", true));
+		hActions.put(EnumActions.AjaxCheckout.toString(),new ListeCartProduitAction(cbd, "/ajax/ajaxCheckout.jsp", "/ajax/ajaxError.jsp", true));
 		//Module
 		hActions.put(EnumActions.ModulePanier.toString(),new ListeCartProduitAction(cbd, "/ajax/ajaxModulePanier.jsp", "/ajax/ajaxError.jsp", false));
 		//Action
-		hActions.put(EnumActions.AddPanier.toString(),new AddCartProduitAction(cbd, "/ajax/ajaxModulePanier.jsp", "/ajax/ajaxError.jsp", false));
-		hActions.put(EnumActions.EnleverPanier.toString(),new RemoveCartProduitAction(cbd, "/ajax/ajaxModulePanier.jsp", "/ajax/ajaxError.jsp", false));
+		hActions.put(EnumActions.AddPanier.toString(),new AddCartProduitAction(cbd, "/ajax/ajaxModulePanier.jsp", "/ajax/ajaxError.jsp", true));
+		hActions.put(EnumActions.EnleverPanier.toString(),new RemoveCartProduitAction(cbd, "/ajax/ajaxModulePanier.jsp", "/ajax/ajaxError.jsp", true));
+		hActions.put(EnumActions.EnleverUnPanier.toString(),new RemoveUnCartProduitAction(cbd, "/ajax/ajaxModulePanier.jsp", "/ajax/ajaxError.jsp", true));
 		
 	}
 
