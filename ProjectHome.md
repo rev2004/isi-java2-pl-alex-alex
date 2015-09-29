@@ -1,0 +1,1 @@
+Just a school project in J2EE classes. Shopping cart style website for a fictive grocery store.
